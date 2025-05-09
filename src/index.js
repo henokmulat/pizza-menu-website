@@ -50,7 +50,7 @@ const pizzaData = [
 function App() {
   return (
     <div className="container">
-      <h1>Hello React!</h1>
+      {/* <h1>Hello Reasct!</h1> */}
       <Header />
       <Menu />
       <Footer />
@@ -72,10 +72,33 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <pizza />
-      <Pizza />
-      <Pizza />
+      <pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price="10"
+      />
+      <Pizza
+        name="Pizza funghi"
+        ingredients="Tomato, mushrooms"
+        price={12}
+        photoName="pizzas/funghi.jpg"
+      />
     </main>
+  );
+}
+
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+
+        <p>{props.ingredients}</p>
+        <span>props.priceS</span>
+      </div>
+    </div>
   );
 }
 
@@ -91,16 +114,6 @@ function Footer() {
     <footer className="footer">
       {new Date().toLocaleTimeString()} We're currently open!
     </footer>
-  );
-}
-
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-      <h3>Pizza Spinaci</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
   );
 }
 
